@@ -8,7 +8,9 @@
     define('SRC', ROOT . DS . 'src' . DS);
     define('PUB', ROOT . DS . 'pub' . DS);
 
-    //$url = $_SERVER['REQUEST_URI'];
-    $url = $_GET['url'];
+    $url = 'home'; // default
+    if(isset($_GET['url'])) {
+        $url = $_GET['url'];
+    }
 
     require_once(LIB . 'bootstrap.php');

@@ -50,18 +50,37 @@
         else {
             $urlArray = array();
             $urlArray = explode("/", $url);
-
-            $controller = $urlArray[0];
-            array_shift($urlArray);
-            if(!empty($urlArray)) {
-                $query_string = $urlArray;
-            }
+            list($controller, $path) = parseParams($urlArray);
         }
 
         $controllerName = $controller;
         $controller = ucwords($controller);
         $controller .= 'Controller';
-        $dispatch = new $controller($query_string);
+
+        $dispatch = new $controller($controllerName, $urlArray, $path);
+        $action = $dispatch->getAction();
+
+        if((int)method_exists($controller, $action)) {
+            call_user_func_array(array($dispatch, $action), $urlArray);
+        }
+    }
+
+    function parseParams(&$params) {
+        $controller = NULL;
+        $myPath = SRC . 'controller';
+        $curPath = NULL;
+
+        while(!empty($params)) {
+            $tmp = array_shift($params);
+            $tmpPath .= DS . $tmp;
+            if(file_exists($myPath . $tmpPath . 'controller.php')) {
+                $curPath .= DS . $tmp;
+            }
+        }
+        $controller = $tmp;
+        require_once($myPath . $tmpPath . 'controller.php');
+        
+        return array($controller, $curPath);
     }
 
     function __autoload($className) {
@@ -80,7 +99,7 @@
             require_once($model);
         }
         else {
-            echo "Error: No Such Class - " . $class;
+            echo "Error: No Such Class - " . $className;
         }
     }
 
