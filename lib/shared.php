@@ -69,6 +69,7 @@
         $controller = NULL;
         $myPath = SRC . 'controller';
         $curPath = NULL;
+        $tmpPath = NULL;
 
         while(!empty($params)) {
             $tmp = array_shift($params);
