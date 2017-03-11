@@ -17,6 +17,6 @@ class Template {
 
     function render() {
         extract($this->variables);
-        include(SRC . 'template' . $this->_path . DS . $this->_action . '.php');
+        include(SRC . 'template' . DS . $this->_path . DS . $this->_action . '.php');
     }
 }

@@ -76,7 +76,7 @@ class SQLQuery {
         return $this->_query->fetch(PDO::FETCH_ASSOC);
     }
 
-    function getAll() {
-        return $this->_query->fetchAll(PDO::FETCH_ASSOC);
+    function getAll($style = PDO::FETCH_ASSOC) {
+        return $this->_query->fetchAll($style);
     }
 }

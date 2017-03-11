@@ -1,6 +1,6 @@
 <?php
     function setReporting() {
-        if(defined(DEV_ENV) && DEV_ENV == true) {
+        if(defined('DEV_ENV') && DEV_ENV == true) {
             error_reporting(E_ALL);
             ini_set('display_errors', 'On');
         }
@@ -42,7 +42,7 @@
         global $url;
         $url = rtrim($url, "/");
 
-	$controller = $model = $query_string = NULL;
+	$controller = $params = NULL;
 
         if(!$url) {
             $controller = "home";
@@ -50,38 +50,42 @@
         else {
             $urlArray = array();
             $urlArray = explode("/", $url);
-            list($controller, $path) = parseParams($urlArray);
+            list($controller, $path, $params) = parseParams($urlArray);
         }
 
         $controllerName = $controller;
         $controller = ucwords($controller);
         $controller .= 'Controller';
 
-        $dispatch = new $controller($controllerName, $urlArray, $path);
+        $dispatch = new $controller($controllerName, $params, $path);
         $action = $dispatch->getAction();
 
         if((int)method_exists($controller, $action)) {
-            call_user_func_array(array($dispatch, $action), $urlArray);
+            $dispatch->execute();
+            //call_user_func_array(array($dispatch, $action));
         }
     }
 
     function parseParams(&$params) {
-        $controller = NULL;
-        $myPath = SRC . 'controller';
-        $curPath = NULL;
-        $tmpPath = NULL;
+        $basePath = SRC . 'controller';
+        $found = NULL;
+        $args = array();
 
-        while(!empty($params)) {
-            $tmp = array_shift($params);
-            $tmpPath .= DS . $tmp;
-            if(file_exists($myPath . $tmpPath . 'controller.php')) {
-                $curPath .= DS . $tmp;
+        while(!$found && !empty($params)) {
+            $testPath = implode("/", $params);
+            if(file_exists($basePath . DS . $testPath . 'controller.php')) {
+                $controller = $params[ count($params) - 1 ];
+                $found = true;
+            }
+            else {
+                array_unshift($args, array_pop($params));
             }
         }
-        $controller = $tmp;
-        require_once($myPath . $tmpPath . 'controller.php');
-        
-        return array($controller, $curPath);
+        if(empty($params)) {
+            echo "404 ERROR"; die;
+        }
+        require_once($basePath . DS . $testPath . 'controller.php');
+        return array($controller, $testPath, $args);
     }
 
     function __autoload($className) {
