@@ -1,0 +1,51 @@
+#!/bin/bash
+usage() { echo "usage: bin/newpage -n <name> -r <route> -e <English title> -c <Welsh title> -p <permission>" 1>&2; exit 1; }
+while getopts ":n:r:e:c:p:" o; do
+    case "${o}" in
+        n)
+            n=${OPTARG}
+            ;;
+        r)
+            r=${OPTARG}
+            ;;
+        e)
+            e=${OPTARG}
+            ;;
+        c)
+            c=${OPTARG}
+            ;;
+        p)
+            p=${OPTARG}
+            ((p > 0 || p < 4)) || usage
+            ;;
+        \?)
+            echo "Invalid option -${OPTARG}"
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+if [ -z "${n}" ] || [ -z "${r}" ] || [ -z "${e}" ] || [ -z "${c}" ]; then
+    echo "One or more incomplete arguments."
+    usage
+fi
+
+echo "n = ${n}"
+echo "r = ${r}"
+echo "e = ${e}"
+echo "c = ${c}"
+echo "p = ${p}"
+echo "$(pwd)"
+
+uppername="$(tr '[:lower:]' '[:upper:]' <<< ${n:0:1})${n:1}"
+
+printf "<?php\nclass ${uppername}Controller extends Controller {\n    function view($args) {\n        \$this->set('content', 'lorem ipsum');\n    }\n}" > "$(pwd)/src/controller/${n}controller.php"
+printf "<?php\nclass ${uppername} extends Model { }" > "$(pwd)/src/model/${n}.php"
+mkdir -p $(pwd)/src/template/${n}
+printf "<?php echo \$content; ?>" > "$(pwd)/src/template/${n}/view.php"
+
+eval $(cat $(pwd)/cfg/config.php | grep "USER\|PASS\|NAME" | sed -e "s/define('\(DB_[A-Z]\{4\}\)', '\(.*\)');/\1=\2/")
+echo $DB_USER
+echo $DB_PASS
+echo $DB_NAME
+
+mysql -u${DB_USER} -p${DB_PASS} -e "INSERT INTO tbl_page values (default,'${n}','${e}','${c}','${r}',${p});" ${DB_NAME}

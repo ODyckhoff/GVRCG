@@ -24,7 +24,7 @@ class Controller {
 
         if($controller != 'header' && $controller != 'footer') {
             $this->_header = $this->getHeader();
-    //        $this->_footer = $this->getFooter();
+            $this->_footer = $this->getFooter();
         }
         $this->_template = new Template($controller, $this->getAction(), $this->_path);
     }
@@ -36,7 +36,7 @@ class Controller {
         call_user_func_array(array($this,$this->_action),$this->_params);
         $this->runTemplate();
         if($this->_controller != "header" && $this->_controller != "footer") {
-            //$this->_footer->execute();
+            $this->_footer->execute();
         }
     }
 
