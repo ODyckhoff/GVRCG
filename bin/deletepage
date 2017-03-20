@@ -1,0 +1,33 @@
+#!/bin/bash
+
+usage() { echo "Usage: bin/deletepage -n <page_name>" 2>&1; exit 1; }
+
+while getopts ":n:" o; do
+    case "${o}" in
+        n)
+            n=${OPTARG}
+            ;;
+        \?)
+            echo "Invalid option -${OPTARG}"
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+if [ -z "${n}" ]; then
+    echo "Page option '-n' cannot be empty."
+    usage
+fi
+
+uppername="$(tr '[:lower:]' '[:upper:]' <<< ${n:0:1})${n:1}"
+
+# Get database details from cfg/config.php
+eval $(cat $(pwd)/cfg/config.php | grep "USER\|PASS\|NAME" | sed -e "s/define('\(DB_[A-Z]\{4\}\)', '\(.*\)');/\1=\2/")
+
+mysql -u${DB_USER} -p${DB_PASS} -e "SELECT page_id,page_route FROM tbl_page WHERE page_name='${n}';" gvrcg_db | while read page_id page_route; do
+    p_id=${page_id}
+    p_route=${page_route}
+done
+
+echo "id = ${p_id}, route = ${p_route}"

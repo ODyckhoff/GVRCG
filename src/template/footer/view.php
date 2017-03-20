@@ -1,5 +1,5 @@
 </div>
-<div class="w3-dark-grey w3-center w3-text-white">
+<div class="w3-dark-grey w3-center w3-text-white w3-margin-top">
 &copy; 2017 Bridgend Valleys Railway Company t/a Garw Valley Railway
 <br />
 Pontycymer Locomotive Works, Old Station Yard, Pontycymer, Bridgend CF32 8AZ

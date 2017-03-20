@@ -57,6 +57,10 @@
         $controller = ucwords($controller);
         $controller .= 'Controller';
 
+        if(preg_match('/^\d/', $controller)) {
+            $controller = '_' . $controller;
+        }
+
         $dispatch = new $controller($controllerName, $params, $path);
         $action = $dispatch->getAction();
 
@@ -70,6 +74,7 @@
         $basePath = SRC . 'controller';
         $found = NULL;
         $args = array();
+        $temp = $params;
 
         while(!$found && !empty($params)) {
             $testPath = implode("/", $params);
@@ -81,14 +86,25 @@
                 array_unshift($args, array_pop($params));
             }
         }
-        if(empty($params)) {
-            echo "404 ERROR"; die;
+
+        if(! file_exists($basePath . DS . $testPath . 'controller.php')) {
+            $session = new Session();
+            $session->sessionAdd('error', $testPath);
+            header('Location:' . BASE_URI . '/error/404/');
+/*
+            $controller = '_404';
+            $testPath = 'error/404';
+            $args = $temp;
+*/
         }
         require_once($basePath . DS . $testPath . 'controller.php');
         return array($controller, $testPath, $args);
     }
 
     function __autoload($className) {
+        if($className[0] == '_') {
+            $className = ltrim($className, '_');
+        }
         $class = strtolower($className);
         $libtest = LIB . $class . '.class.php';
         $control = SRC . 'controller' . DS . $class . '.php';

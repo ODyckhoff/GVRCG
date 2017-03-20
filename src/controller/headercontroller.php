@@ -12,12 +12,17 @@ class HeaderController extends Controller {
         $lang = $language->getLang();
         $title = $result['page_title_' . $lang];
 
-        $model->select(array('page_title_' . $lang,'page_name'),'tbl_page')->where('page_route="/"')->_end();
+        $model->select(array('page_title_' . $lang,'page_name'),'tbl_page')
+              ->where('page_route="/"')
+              ->_and('page_order != "NULL"')
+              ->order('page_order')
+              ->_end();
         $model->prepare();
         $model->execute();
         $result = $model->getAll(PDO::FETCH_ASSOC);
         $this->set('pages', $result);
         $this->set('lang', $lang);
+        $this->set('text', new Text($lang));
         $this->set('title', $title);
     }
 }

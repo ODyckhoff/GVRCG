@@ -1,7 +1,7 @@
 #!/bin/bash
-usage() { echo "usage: bin/newpage -n <name> -r <route> -e <English title> -c <Welsh title> -p <permission>" 1>&2; exit 1; }
+usage() { echo "usage: bin/newpage -n <name> -r <route> -e <English title> -c <Welsh title> -p <permission> -i <index>" 1>&2; exit 1; }
 
-while getopts ":n:r:e:c:p:" o; do
+while getopts ":n:r:e:c:p:i:" o; do
     case "${o}" in
         n)
             n=${OPTARG}
@@ -18,6 +18,9 @@ while getopts ":n:r:e:c:p:" o; do
         p)
             p=${OPTARG}
             ((p > 0 || p < 4)) || usage
+            ;;
+        i)
+            i=${OPTARG}
             ;;
         \?)
             echo "Invalid option -${OPTARG}"
@@ -51,6 +54,10 @@ if [ -z "${p}" ]; then
     usage
 fi
 
+if [ -z "${i}" ]; then
+    i='NULL'
+fi
+
 uppername="$(tr '[:lower:]' '[:upper:]' <<< ${n:0:1})${n:1}"
 
 # Create controller.
@@ -69,4 +76,4 @@ printf "<?php echo \$content; ?>" > "$(pwd)/src/template${r}/${n}/view.php"
 eval $(cat $(pwd)/cfg/config.php | grep "USER\|PASS\|NAME" | sed -e "s/define('\(DB_[A-Z]\{4\}\)', '\(.*\)');/\1=\2/")
 
 # Create page in database.
-mysql -u${DB_USER} -p${DB_PASS} -e "INSERT INTO tbl_page values (default,'${n}','${e}','${c}','${r}',${p});" ${DB_NAME}
+mysql -u${DB_USER} -p${DB_PASS} -e "INSERT INTO tbl_page values (default,'${n}','${e}','${c}','${r}',${p}, ${i});" ${DB_NAME}

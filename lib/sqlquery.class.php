@@ -35,8 +35,33 @@ class SQLQuery {
         return $this;
     }
 
+    function insert($table, $values) {
+        $this->_querystr = 'INSERT INTO '  . $table . ' VALUES(' . implode(', ', $values) . ');';
+        return $this;
+    }
+
+    function update($table) {
+        $this->_querystr = 'UPDATE ' . $table;
+        return $this;
+    }
+
+    function set($clause) {
+        $this->_querystr .= ' SET ' . $clause;
+        return $this;
+    }
+
     function where($clause) {
         $this->_querystr .= ' WHERE ' . $clause;
+        return $this;
+    }
+
+    function opengroup() {
+        $this->_querystr .= '(';
+        return $this;
+    }
+
+    function closegroup() {
+        $this->_querystr .= ')';
         return $this;
     }
 
@@ -45,13 +70,18 @@ class SQLQuery {
         return $this;
     }
 
-    function _or() {
-        $this->_querystr .= ' OR';
+    function _or($clause) {
+        $this->_querystr .= ' OR ' . $clause;
         return $this;
     }
 
     function _join($type, $table, $on) {
         $this->_querystr .= ' ' . strtoupper($type) . ' JOIN ' . $table . ' ON ' . $on;
+        return $this;
+    }
+
+    function order($col, $type = 'asc') {
+        $this->_querystr .= ' order by ' . $col . ' ' . $type;
         return $this;
     }
 

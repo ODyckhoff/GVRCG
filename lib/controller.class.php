@@ -20,6 +20,9 @@ class Controller {
 
         $this->getModel();
         $model = ucwords($this->_model);
+        if(preg_match('/^\d/', $model)) {
+            $model = '_' . $model;
+        }
         $this->$model = new $model();
 
         if($controller != 'header' && $controller != 'footer') {
@@ -33,7 +36,7 @@ class Controller {
         if($this->_controller != "header" && $this->_controller != "footer") {
             $this->_header->execute();
         }
-        call_user_func_array(array($this,$this->_action),$this->_params);
+        call_user_func_array(array($this, $this->_action), $this->_params);
         $this->runTemplate();
         if($this->_controller != "header" && $this->_controller != "footer") {
             $this->_footer->execute();
