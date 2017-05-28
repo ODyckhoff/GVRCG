@@ -15,6 +15,14 @@ class Text {
         $model->bindParam(':text_name', $name);
         $model->execute();
         $result = $model->getResult(PDO::FETCH_ASSOC);
-        return $result['text_' . $this->_lang];
+
+        $this->_text = $result['text_' . $this->_lang];
+        $matches = array();
+        if(preg_match('/\[\[.*?\]\]/', $this->_text, $matches)) {
+            $sc = new Shortcode($matches[0]);
+	    $this->_text = str_replace($matches[0], $sc->expand(), $this->_text);
+        }
+        
+        return $this->_text;
     }
 }

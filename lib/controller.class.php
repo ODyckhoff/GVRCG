@@ -33,14 +33,27 @@ class Controller {
     }
 
     function execute() {
-        if($this->_controller != "header" && $this->_controller != "footer") {
+        ob_start();
+        if($this->_controller != "header" && $this->_controller != "footer" && $this->_controller != "action") {
             $this->_header->execute();
         }
+        $header = ob_get_contents();
+        ob_end_clean();
+
+        ob_start();
         call_user_func_array(array($this, $this->_action), $this->_params);
         $this->runTemplate();
+        $body = ob_get_contents();
+        ob_end_clean();
+
+        ob_start();
         if($this->_controller != "header" && $this->_controller != "footer") {
             $this->_footer->execute();
         }
+        $footer = ob_get_contents();
+        ob_end_clean();
+
+        echo $header . $body . $footer;
     }
 
     function getModel() {

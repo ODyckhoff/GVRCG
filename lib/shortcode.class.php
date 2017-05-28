@@ -1,4 +1,5 @@
 <?php
+
 class Shortcode {
     protected $_code;
     protected $_type;
@@ -20,8 +21,11 @@ class Shortcode {
         $this->_args  = $matches[2];
 
         switch($this->_type) {
-            case 'link':
-                $this->_func = 'expand_link';
+            case 'linkin':
+                $this->_func = 'expand_linkin';
+            break;
+            case 'linkin':
+                $this->_func = 'expand_linkout';
             break;
             default:
                 return FALSE;
@@ -31,13 +35,20 @@ class Shortcode {
     }
 
     function expand() {
-        call_user_func('Shortcode::' . $this->_func, $this->_args);
+        return call_user_func('Shortcode::' . $this->_func, $this->_args);
     }
 
-    function expand_link($arg) {
+    function expand_linkin($arg) {
+        $arr = explode('|', $arg);
+        $str = '<a href="' . BASE_URI . $arr[0] . '">' . (count($arr) == 2 ? $arr[1] : $arr[0]) . '</a>';
+        return $str;
+    }
+
+    function expand_linkout($arg) {
         $arr = explode('|', $arg);
         $str = '<a href="' . $arr[0] . '">' . (count($arr) == 2 ? $arr[1] : $arr[0]) . '</a>';
-        echo $str . "\n";
+        return $str;
     }
 }
+
 

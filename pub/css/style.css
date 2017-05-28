@@ -1,5 +1,9 @@
 .green {
-    background:#296356;
+    background:#013214;
+}
+
+.othergreen {
+//    background:#296356;
 }
 
 .wrapper {
@@ -10,7 +14,33 @@
     display:inline;
 }
 
+.contentimg {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
 .middle {
-    margin-right: 50%;
+    display: inline-block;
+/*    margin-right: 50%;
     transform: translate(50%, 0)
+*/
+    margin:auto;
+}
+
+.notfooter {
+    position:relative;
+    min-height:100%;
+    padding-bottom:50px;
+}
+
+.footer {
+//    position:absolute;
+    width:100%;
+    height:50px;
+    bottom:0;
+}
+
+.largenav {
+    display:inline-block;
 }

@@ -1,6 +1,7 @@
 <?php
 class HeaderController extends Controller {
     function view($page) {
+        $sess = new Session();
         $model = $this->Header;
         $model->selectAll('tbl_page')->where('page_name = :page_name')->_end();
         $model->prepare();
@@ -24,5 +25,6 @@ class HeaderController extends Controller {
         $this->set('lang', $lang);
         $this->set('text', new Text($lang));
         $this->set('title', $title);
+        $sess->sessionAdd('title', $title);
     }
 }

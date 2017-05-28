@@ -36,6 +36,9 @@ class SQLQuery {
     }
 
     function insert($table, $values) {
+        if(!is_array($values)) {
+            $values = array($values);
+        }
         $this->_querystr = 'INSERT INTO '  . $table . ' VALUES(' . implode(', ', $values) . ');';
         return $this;
     }
@@ -99,7 +102,7 @@ class SQLQuery {
     }
 
     function execute() {
-        $this->_query->execute();
+        return $this->_query->execute();
     }
 
     function getResult() {
@@ -108,5 +111,9 @@ class SQLQuery {
 
     function getAll($style = PDO::FETCH_ASSOC) {
         return $this->_query->fetchAll($style);
+    }
+
+    function getErr() {
+        return "(" . $this->_query->errorCode() . ") : " . implode(', ', $this->_query->errorInfo());
     }
 }

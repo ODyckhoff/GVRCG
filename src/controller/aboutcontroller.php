@@ -2,6 +2,7 @@
 class AboutController extends Controller {
 
     function view() {
-        $this->set('intro', "Hello, About");
+        $text = new Text($this->_lang->getLang());
+        $this->set('text', $text);
     }
 }

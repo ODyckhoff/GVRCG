@@ -1,6 +1,7 @@
 <?php
 class RailwayController extends Controller {
     function view() {
-        $this->set("testing", "Hello, Railway");
+        $text = new Text($this->_lang->getLang());
+        $this->set("text", $text);
     } 
 }

@@ -8,6 +8,7 @@
             echo '<div class="w3-panel w3-padding w3-leftbar w3-border-red w3-pale-red">' . $error . '</div>';
         }
     ?>
+    <div class="w3-container w3-card-4">
     <form action="<?php echo BASE_URI; ?>/action/auth" method="POST">
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
@@ -28,4 +29,5 @@
             </div>
         </div>
     </form>
+    </div>
 </div>
