@@ -1,3 +1,5 @@
 config.php
 *.sw?
 dump.sql
+.htaccess
+pub/.htaccess
