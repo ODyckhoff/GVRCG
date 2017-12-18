@@ -4,6 +4,7 @@
             exit;
         }
     ?>
+    <a href="<?php echo BASE_URI; ?>/members">&laquo; Go back to Dashboard</a>
     <h1><?php echo $text->get_text('memberlist'); ?></h1>
 
     <table class="w3-table-all w3-hoverable w3-centered">
@@ -20,6 +21,7 @@
         </thead>
         <tbody>
         <?php
+            $levels = array('Developer', 'Administrator', 'Board', 'Editor', 'Volunteer', 'Visitor');
             foreach($members as $member) {
                 echo '<tr class="w3-cell-middle">';
                     echo '<td>' . $member['member_id'] . '</td>';
@@ -31,7 +33,7 @@
                             ? '<i class="fa fa-check"></i>'
                             : '<i class="fa fa-times"></i>'
                         ) . '</td>';
-                   echo '<td>' . $text->get_text('clearance_' . $member['member_level']) . '</td>';
+                   echo '<td>' . $levels[$member['member_level']] . '</td>';
                    echo '<td><a class="w3-btn w3-round green w3-hover-opacity" href="' . BASE_URI . '/members/edit/' . $member['member_id'] . '">'
                         . $text->get_text('memberedit') . '</a></td>';
                echo '</tr>';

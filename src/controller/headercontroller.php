@@ -14,7 +14,7 @@ class HeaderController extends Controller {
         $title = $result['page_title_' . $lang];
 
         $model->select(array('page_title_' . $lang,'page_name'),'tbl_page')
-              ->where('page_route="/"')
+              ->where('page_route not like "/%/%"')
               ->_and('page_order != "NULL"')
               ->order('page_order')
               ->_end();

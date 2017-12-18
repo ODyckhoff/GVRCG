@@ -2,6 +2,7 @@
 class Session {
     function __construct() {
         if(session_status() == PHP_SESSION_NONE) {
+           // echo "<pre>" . print_r("jdkfjdkfj", 1) . "</pre>"; die;
             session_start();
         }
     }

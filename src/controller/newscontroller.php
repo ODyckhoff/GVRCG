@@ -9,6 +9,7 @@ class NewsController extends Controller {
         $newsfeed = $this->News;
 
         $newsfeed->selectAll('tbl_news')
+                 ->order('news_pubdate', 'DESC')
                  ->_end();
         $newsfeed->prepare();
 

@@ -8,7 +8,12 @@
             echo '<div class="w3-panel w3-padding w3-leftbar w3-border-red w3-pale-red">' . $error . '</div>';
         }
     ?>
-    <form action="<?php echo BASE_URI; ?>/action/register" method="POST">
+    <script>
+        function regSubmit(token) {
+            document.getElementById('reg-form').submit();
+        }
+    </script>
+    <form id="reg-form" action="<?php echo BASE_URI; ?>/action/register" method="POST">
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
             <div class="w3-rest">
@@ -42,7 +47,7 @@
         <div class="w3-row w3-section">
             <div class="w3-col">&nbsp;</div>
             <div class="w3-col">
-                <input class="w3-btn w3-round green" type="submit" value="<?php echo $text->get_text('submit'); ?>" />
+                <button class="w3-btn w3-round green g-recaptcha" data-sitekey="6LfQeT0UAAAAAFeW4PTkCOya5oRYtW5pMgBzBNjj" data-callback="regSubmit"> <?php echo $text->get_text('submit'); ?> </button>
             </div>
         </div>
     </form>

@@ -47,6 +47,11 @@ class SQLQuery {
         $this->_querystr = 'UPDATE ' . $table;
         return $this;
     }
+    
+    function deleteFrom($table) {
+        $this->_querystr = 'DELETE FROM ' . $table;
+        return $this;
+    }
 
     function set($clause) {
         $this->_querystr .= ' SET ' . $clause;

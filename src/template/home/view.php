@@ -8,7 +8,7 @@
         </div>
         </a>
         <br />
-        <a href="<?php echo BASE_URI; ?>/member/register">
+        <a href="<?php echo BASE_URI; ?>/members/register">
         <div class="w3-card-12 w3-text-white green w3-large w3-center w3-padding w3-margin-bottom">
             <p><?php echo $text->get_text('weneedyou'); ?></p>
             <p><i class="w3-jumbo fa fa-handshake-o"></i></p>
@@ -50,7 +50,7 @@
     <div class="w3-container w3-quarter">&nbsp;</div>
     <div class="w3-container green w3-text-white w3-center w3-half w3-padding">
             <img src="<?php echo BASE_URI; ?>/pub/img/9660-brynmenyn.png" width="60%" class="w3-round w3-center" />
-            <p><?php echo $desc['text_' . $lang]; ?></p>
+            <p><?php // echo $desc['text_' . $lang]; ?></p>
     </div>
     <div class="w3-container w3-quarter">&nbsp;</div>
 </div>

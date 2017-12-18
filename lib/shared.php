@@ -2,7 +2,7 @@
     function setReporting() {
         if(defined('DEV_ENV') && DEV_ENV == true) {
             error_reporting(E_ALL);
-            ini_set('display_errors', 'On');
+            ini_set('display_errors', '1');
         }
         else {
             error_reporting(E_ALL);
@@ -68,6 +68,19 @@
             $dispatch->execute();
             //call_user_func_array(array($dispatch, $action));
         }
+    }
+
+    function endswith($string, $test) {
+        $strlen = strlen($string);
+        $testlen = strlen($test);
+        if ($testlen > $strlen) return false;
+        return substr_compare($string, $test, $strlen - $testlen, $testlen) === 0;
+    }
+    
+    function human_filesize($bytes, $decimals = 2) {
+        $sz = 'BKMGTP';
+        $factor = floor((strlen($bytes) - 1) / 3);
+        return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
     }
 
     function parseParams(&$params) {
