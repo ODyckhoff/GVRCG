@@ -12,7 +12,7 @@ class MembersController extends Controller {
         $user = $sess->sessionGet('loggedin');
         if(!$user['approved']) {
             $content .= '<div class="w3-content"><div class="w3-panel w3-leftbar w3-border-red w3-pale-red w3-padding">';
-            $content .= ($user['member_denied'] ? $text->get_text('regdenied') : $text->get_text('pending')) . ' '
+            $content .= ($user['denied'] ? $text->get_text('regdenied') : $text->get_text('pending')) . ' '
                      . $text->get_text('noauth');
             $content .= '</div></div>';
             $this->set('noop', true);

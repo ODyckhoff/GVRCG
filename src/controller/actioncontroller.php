@@ -176,7 +176,8 @@ class ActionController extends Controller {
                     'id'       => $model->handle()->lastInsertId(),
                     'user'     => $user,
                     'level'    => 4,
-                    'approved' => 0
+                    'approved' => 0,
+                    'denied'   => 0
                 )
             );
             $sess->sessionAdd('registered', true);
