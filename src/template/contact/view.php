@@ -8,9 +8,9 @@
 
     <div class="w3-container w3-half">
         <h3>Email Us!</h3>
-        <p class="w3-large"><i class="fa fa-envelope-o w3-xxlarge"></i> info@garwvalleyrailway.co.uk</p>
+        <p class="w3-large"><i class="fa fa-envelope-o w3-xxlarge"></i> enquiries@garwvalleyrailway.co.uk</p>
         <h3>Pay us a visit!</h3>
-        <p class="w3-large"><i class="fa fa-clock-o w3-xxlarge"></i> Wednesdays and Saturdays 10:30 - 15:30</p>
+        <p class="w3-large"><i class="fa fa-clock-o w3-xxlarge"></i> Wednesdays and Saturdays 09:30 - 15:30</p>
 
         <p>Our address and company/charity details can be found in the footer of all our web pages.</p>
         <h3>Check out our social media!</h3>
