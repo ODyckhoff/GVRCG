@@ -153,7 +153,7 @@
                             <?php foreach( $pages as $page ) {
                                     if($page['page_name'] != 'home') {
                                         echo
-                                           '<a class="w3-bar-item w3-text-white w3-button" href="' . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
+                                           '<a class="w3-bar-item w3-button" href="' . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
                                            . $page['page_title_' . $lang]
                                            . '</a>'
                                            . '<br /><br />';
