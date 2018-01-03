@@ -18,7 +18,7 @@
         <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet"> 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
-        <link rel="stylesheet" href="<?php echo BASE_URI; ?>/pub/css/style.css">
+        <link rel="stylesheet" href="https://<?php echo BASE_URI; ?>/pub/css/style.css">
         <script>
             function getItems() {
                 var myitems = $( "#sortable > tr").not(':first');
