@@ -41,6 +41,7 @@
 
 @-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
 </style>
+<!--
 <div class="snowflakes" aria-hidden="true">
   <div class="snowflake">
   ❄
@@ -73,6 +74,7 @@
   ❄
   </div>
 </div>
+-->
     <div class="notfooter">
         <header class="green w3-text-white w3-display-container w3-padding w3-hide-medium w3-hide-small">
             <div class="w3-container w3-text-white">
@@ -103,7 +105,7 @@
                 </div>
                 <div class="w3-container w3-cell">
                     <!--<img src="<?php echo BASE_URI; ?>/pub/img/logo.png" />-->
-                    <img src="<?php echo BASE_URI; ?>/pub/img/christmasgvrcirclelogo.png" width="150px" />
+                    <img src="<?php echo BASE_URI; ?>/pub/img/gvrcirclelogo.png" width="150px" />
                 </div>
                 <div class="w3-container w3-cell w3-cell-middle">
                     <h1>Rheilffordd Cwm Garw</h1>
@@ -140,7 +142,7 @@
         <header class="green w3-hide-large w3-top w3-bottombar w3-text-white w3-border-white">
             <a class="w3-text-white" href="<?php echo BASE_URI; ?>">
             <span class="w3-left">
-	    <img class="w3-padding-left w3-padding-right" src="<?php echo BASE_URI; ?>/pub/img/christmasgvrcirclelogo.png" height="45px" />
+	    <img class="w3-padding-left w3-padding-right" src="<?php echo BASE_URI; ?>/pub/img/gvrcirclelogo.png" height="45px" />
             </span>
             <span class="w3-left">Garw Valley Railway<br />Rheilffordd Cwm Garw</span>
             </a>
