@@ -1,4 +1,15 @@
 <?php
+
+    function verifyURL() {
+
+        if(isset($_SERVER['HTTPS']) && (PROTOCOL == 'http' || PROTOCOL == 'http://')) {
+            header('Location:http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        }
+        elseif(!isset($_SERVER['HTTPS']) && (PROTOCOL == 'https' || PROTOCOL == 'https://')) {
+            header('Location:https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        }
+    }
+
     function setReporting() {
         if(defined('DEV_ENV') && DEV_ENV == true) {
             error_reporting(E_ALL);
@@ -137,6 +148,7 @@
         }
     }
 
+    verifyURL();
     setReporting();
     removeMagicQuotes();
     unregisterGlobals();

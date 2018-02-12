@@ -18,7 +18,7 @@
                 echo ' by ' . $article['news_author'];
                 ?></i></p>
             <h3><?php echo $article['news_summary']; ?></h3>
-            <a class="w3-btn green" href="<?php echo BASE_URI; ?>/members/editor/editnews/<?php echo $article['news_id']; ?>">Edit</a>
+            <a class="w3-btn green" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/editnews/<?php echo $article['news_id']; ?>">Edit</a>
         </div>
     <?php
         }

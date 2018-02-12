@@ -1,5 +1,5 @@
 <div class="w3-content">
-    <a href="<?php echo BASE_URI; ?>/members">Go back to Dashboard</a>
+    <a href="<?php echo PROTOCOL . BASE_URI; ?>/members">Go back to Dashboard</a>
     <h2>Add File</h2>
 <?php
     if(isset($noop) && $noop) {
@@ -14,7 +14,7 @@
 ?>
 
     <div class="w3-container w3-padding">
-        <form action="<?php echo BASE_URI; ?>/action/addfile" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo PROTOCOL . BASE_URI; ?>/action/addfile" method="POST" enctype="multipart/form-data">
             <!-- <input type="hidden" name="MAX_FILE_SIZE" value="300000" /> -->
 	    <div class="w3-section w3-row">
                 <div class="w3-col" style="width:150px;">

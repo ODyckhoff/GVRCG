@@ -1,6 +1,6 @@
 <div class="w3-content">
     <div class="w3-container">
-        <a href="<?php echo BASE_URI; ?>/members">Go back to Dashboard</a>
+        <a href="<?php echo PROTOCOL . BASE_URI; ?>/members">Go back to Dashboard</a>
 <?php
     if(isset($noop) && $noop == true) {
         echo $content;
@@ -17,7 +17,7 @@
     <h2>Editing News</h2>
     
         <div class="w3-container w3-card-4">
-            <form method="POST" action="<?php echo BASE_URI; ?>/action/editnews/<?php echo $article['news_id']; ?>">
+            <form method="POST" action="<?php echo PROTOCOL . BASE_URI; ?>/action/editnews/<?php echo $article['news_id']; ?>">
                 <div class="w3-row w3-section">
                     <div class="w3-col" style="width:100px"><b>Title</b></div>
                     <div class="w3-rest">

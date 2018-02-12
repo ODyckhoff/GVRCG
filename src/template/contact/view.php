@@ -3,7 +3,7 @@
 
     <h2><?php echo $text->get_text('map'); ?></h2>
     <div class="w3-container w3-half">
-    <p class="w3-margin w3-center">Pontycymer<br /><img class="w3-image" src="<?php echo BASE_URI; ?>/pub/img/map_pontycymer.png" /></p>
+    <p class="w3-margin w3-center">Pontycymer<br /><img class="w3-image" src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/map_pontycymer.png" /></p>
     </div>
 
     <div class="w3-container w3-half">

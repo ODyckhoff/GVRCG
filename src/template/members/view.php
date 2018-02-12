@@ -30,7 +30,7 @@
             <b>Name: </b><?php echo $user['name']; ?><br />
             <b>Email: </b><?php echo $user['email']; ?><br />
             <b>Level: </b><?php echo $levels[$user['level']]; ?><br />
-            <a class="w3-btn green w3-text-white" href="<?php echo BASE_URI; ?>/members/selfedit">Edit Account Details</a><br />
+            <a class="w3-btn green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/selfedit">Edit Account Details</a><br />
 
         <h2>Documents</h2>
             <?php foreach ($files as $file) {
@@ -42,20 +42,20 @@
     <div class="w3-col w3-third">
         <h2>Site Editing</h2>
         <h3>News</h3> 
-        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo BASE_URI; ?>/members/editor/news/add">Add News</a>
-        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo BASE_URI; ?>/members/editor/news">Manage News</a>
+        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/news/add">Add News</a>
+        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/news">Manage News</a>
       
         <h3>Events</h3>
-        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo BASE_URI; ?>/members/editor/event/add">Add Event</a>
-        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo BASE_URI; ?>/members/editor/event">Manage Events</a>
+        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/event/add">Add Event</a>
+        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/event">Manage Events</a>
 
 <!--        <h3>Pages</h3>
-        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo BASE_URI; ?>/members/editor/page/add">Add Page</a>
-        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo BASE_URI; ?>/members/editor/page">Manage Pages</a>
+        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page/add">Add Page</a>
+        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page">Manage Pages</a>
 -->
         <h3>Documents</h3>
-        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo BASE_URI; ?>/members/editor/doc/add">Add File</a>
-        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo BASE_URI; ?>/members/editor/doc">Manage Files</a>
+        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/doc/add">Add File</a>
+        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/doc">Manage Files</a>
     </div>
     <?php } ?>
 
@@ -64,12 +64,12 @@
         <h2>Website Associates</h2>
         <?php if($user['level'] <= LVL_BOARD) { ?>
         <h3>Members</h3>
-        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo BASE_URI; ?>/members/show">Manage Members</a>
+        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/show">Manage Members</a>
         <?php } ?>
 <!--
         <h3>Organisations</h3>
-        <a class="w3-btn w3-border w3-round-large green" href="<?php echo BASE_URI; ?>/members/orgs/add">Add Organisation</a>
-        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo BASE_URI; ?>/members/orgs/show">Manage Organisations</a>
+        <a class="w3-btn w3-border w3-round-large green" href="<?php echo PROTOCOL . BASE_URI; ?>/members/orgs/add">Add Organisation</a>
+        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/orgs/show">Manage Organisations</a>
 -->    </div>
     <?php } ?>
 </div>

@@ -5,7 +5,7 @@
     <p>Click on the map to see the full sized version.</p>
     <div class="w3-row">
         <div class="w3-third w3-padding">
-            <a href="<?php echo BASE_URI; ?>/pub/img/garwmap.svg"><img class="w3-image" src="<?php echo BASE_URI; ?>/pub/img/garwmap.svg" height="150px" width="150px" /></a>
+            <a href="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/garwmap.svg"><img class="w3-image" src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/garwmap.svg" height="150px" width="150px" /></a>
         </div>
 
         <div class="w3-twothird w3-padding">
@@ -40,12 +40,12 @@ The opening of the Garw branch ultimately made the valley’s huge coal reserves
 </p>
 </div>
 <div class="w3-half">
-    <img class="w3-image contentimg" src="<?php echo BASE_URI; ?>/pub/img/4251-blaengarw.jpg" />
+    <img class="w3-image contentimg" src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/4251-blaengarw.jpg" />
 </div>
 </div>
 <div class="w3-row">
 <div class="w3-third">
-    <img src="<?php echo BASE_URI; ?>/pub/img/9660-brynmenyn.png" class="w3-image contentimg w3-padding" />
+    <img src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/9660-brynmenyn.png" class="w3-image contentimg w3-padding" />
 </div>
 <div class="w3-twothird">
 <p>
@@ -66,7 +66,7 @@ Preserving this branch line will achieve many things – telling the story not o
 </p>
 </div>
 <div class="w3-third">
-    <img class="w3-image contentimg" src="<?php echo BASE_URI; ?>/pub/img/68070-cutout.png" />
+    <img class="w3-image contentimg" src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/68070-cutout.png" />
 </div>
         </div>
     </div>

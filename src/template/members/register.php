@@ -9,14 +9,14 @@
         }
     ?>
     <div class="w3-panel w3-leftbar w3-border-yellow w3-pale-yellow"><h4>Please note, this creates an account on the website. It does not make you a member of the GVR.</h4>
-    <h4>If you would like to become a volunteer on the GVR, please visit the <a href="<?php echo BASE_URI . '/volunteer'; ?>">Volunteer with Us</a> page.</h4>
+    <h4>If you would like to become a volunteer on the GVR, please visit the <a href="<?php echo PROTOCOL . BASE_URI . '/volunteer'; ?>">Volunteer with Us</a> page.</h4>
     </div>
     <script>
         function regSubmit(token) {
             document.getElementById('reg-form').submit();
         }
     </script>
-    <form id="reg-form" action="<?php echo BASE_URI; ?>/action/register" method="POST">
+    <form id="reg-form" action="<?php echo PROTOCOL . BASE_URI; ?>/action/register" method="POST">
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
             <div class="w3-rest">

@@ -1,6 +1,6 @@
 <div class="w3-container">
     <div class="w3-content">
-        <a href="<?php echo BASE_URI; ?>/members">&laquo; Go back to Dashboard.</a>
+        <a href="<?php echo PROTOCOL . BASE_URI; ?>/members">&laquo; Go back to Dashboard.</a>
 <?php
     if(isset($noop) && $noop) {
         exit;
@@ -16,7 +16,7 @@
         <h2>Documents Editor</h2>
 
         <p>
-            <a class="w3-btn w3-green w3-round-large" href="<?php echo BASE_URI; ?>/members/editor/doc/add"><i class="fa fa-plus" aria-hidden="true"></i> Add New File</a>
+            <a class="w3-btn w3-green w3-round-large" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/doc/add"><i class="fa fa-plus" aria-hidden="true"></i> Add New File</a>
         </p>
 
         <table class="w3-table-all">

@@ -1,6 +1,6 @@
 <div class="w3-container">
     <div class="w3-content w3-padding">
-        <a href="<?php echo BASE_URI; ?>/members">&laquo; Go back to Dashboard.</a>
+        <a href="<?php echo PROTOCOL . BASE_URI; ?>/members">&laquo; Go back to Dashboard.</a>
 <?php
     if(isset($noop) && $noop == true) {
         exit;
@@ -18,7 +18,7 @@
         <p>You can change someone's username if it is deemed to be offensive, or you can take actions against the account. It is up to the individual to ensure that their name and email address are correct. You can only set a user's level to an equal or lesser status to your own.</p>
 
         <div class="w3-container w3-card-4">
-            <form method="POST" action="<?php echo BASE_URI; ?>/action/editmember/<?php echo $result['member_id']; ?>">
+            <form method="POST" action="<?php echo PROTOCOL . BASE_URI; ?>/action/editmember/<?php echo $result['member_id']; ?>">
                 <div class="w3-row w3-section">
                     <div class="w3-col" style="width:150px;">
                         <b>Username</b>

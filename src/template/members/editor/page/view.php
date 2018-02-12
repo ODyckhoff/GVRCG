@@ -1,7 +1,7 @@
 <div class="w3-content">
     <h1>Managing Pages</h1>
     <p>
-        <a class="w3-btn w3-green w3-round-large" href="<?php echo BASE_URI; ?>/members/editor/page/add"><i class="fa fa-plus" aria-hidden="true"></i> Add Page</a>
+        <a class="w3-btn w3-green w3-round-large" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page/add"><i class="fa fa-plus" aria-hidden="true"></i> Add Page</a>
 
         <a class="w3-btn w3-amber w3-round-large"><i class="fa fa-list-ol" aria-hidden="true"></i> Change Order</a>
     </p>

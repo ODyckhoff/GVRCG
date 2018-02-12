@@ -4,7 +4,7 @@
             exit;
         }
     ?>
-    <a href="<?php echo BASE_URI; ?>/members">&laquo; Go back to Dashboard</a>
+    <a href="<?php echo PROTOCOL . BASE_URI; ?>/members">&laquo; Go back to Dashboard</a>
     <h1><?php echo $text->get_text('memberlist'); ?></h1>
 
     <table class="w3-table-all w3-hoverable w3-centered">

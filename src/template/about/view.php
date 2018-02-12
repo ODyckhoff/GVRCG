@@ -9,10 +9,10 @@
         ?>
             </div>
             <div class="w3-half w3-padding">
-                <img src="<?php echo BASE_URI; ?>/pub/img/9660-blaengarw.jpg" class="contentimg w3-card-8 w3-image" />
+                <img src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/9660-blaengarw.jpg" class="contentimg w3-card-8 w3-image" />
             </div>
         </div>
-    <a class="w3-btn green w3-text-white w3-large w3-round" href="<?php echo BASE_URI; ?>/about/railway">
+    <a class="w3-btn green w3-text-white w3-large w3-round" href="<?php echo PROTOCOL . BASE_URI; ?>/about/railway">
         <?php echo $text->get_text('learnrailway'); ?> &raquo;
     </a>
 </div>

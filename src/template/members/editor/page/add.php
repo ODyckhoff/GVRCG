@@ -1,6 +1,6 @@
 <div class="w3-content">
 <p>
-    <a href="<?php echo BASE_URI; ?>/members/editor/page">&laquo Go back to Pages</a>
+    <a href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page">&laquo Go back to Pages</a>
 
     <h1>Adding Page</h1>
     <?php
@@ -19,7 +19,7 @@
         <a class="w3-btn w3-round-large w3-green" onclick="submitform()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</a>
     </p>
 
-    <form id="addpageform" action="<?php echo BASE_URI; ?>/action/addpage" method="POST">
+    <form id="addpageform" action="<?php echo PROTOCOL . BASE_URI; ?>/action/addpage" method="POST">
         <div class="w3-section w3-row">
             <div class="w3-col" style="width:100px;">
                 <b>Page Name:</b>

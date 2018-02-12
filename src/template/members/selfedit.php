@@ -19,7 +19,7 @@
             $levels = array('Developer', 'Administrator', 'Board', 'Editor', 'Volunteer', 'Visitor');
         ?>
         <div class="w3-container w3-card-4">
-            <form method="POST" action="<?php echo BASE_URI; ?>/action/selfedit">
+            <form method="POST" action="<?php echo PROTOCOL . BASE_URI; ?>/action/selfedit">
                 <div class="w3-row w3-section">
                     <div class="w3-col" style="width:100px;"><b>Username: </b></div> 
                     <div class="w3-rest">

@@ -18,7 +18,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
-        <link rel="stylesheet" href="<?php echo BASE_URI; ?>/pub/css/style.css">
+        <link rel="stylesheet" href="<?php echo PROTOCOL . BASE_URI; ?>/pub/css/style.css">
         <script>
             function getItems() {
                 var myitems = $( "#sortable > tr").not(':first');
@@ -98,14 +98,14 @@
             ?>
             </div>
             <div class="w3-container green w3-text-white w3-center middle" style="width:100%;">
-                <a class="w3-text-white" href="<?php echo BASE_URI; ?>">
+                <a class="w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>">
                 <div id="wrapper" class="middle">
                 <div class="w3-container w3-cell w3-cell-middle">
                     <h1>Garw Valley Railway</h1>
                 </div>
                 <div class="w3-container w3-cell">
-                    <!--<img src="<?php echo BASE_URI; ?>/pub/img/logo.png" />-->
-                    <img src="<?php echo BASE_URI; ?>/pub/img/gvrcirclelogo.png" width="150px" />
+                    <!--<img src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/logo.png" />-->
+                    <img src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/gvrcirclelogo.png" width="150px" />
                 </div>
                 <div class="w3-container w3-cell w3-cell-middle">
                     <h1>Rheilffordd Cwm Garw</h1>
@@ -140,9 +140,9 @@
         </header>
 
         <header class="green w3-hide-large w3-top w3-bottombar w3-text-white w3-border-white">
-            <a class="w3-text-white" href="<?php echo BASE_URI; ?>">
+            <a class="w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>">
             <span class="w3-left">
-	    <img class="w3-padding-left w3-padding-right" src="<?php echo BASE_URI; ?>/pub/img/gvrcirclelogo.png" height="45px" />
+	    <img class="w3-padding-left w3-padding-right" src="<?php echo PROTOCOL . BASE_URI; ?>/pub/img/gvrcirclelogo.png" height="45px" />
             </span>
             <span class="w3-left">Garw Valley Railway<br />Rheilffordd Cwm Garw</span>
             </a>

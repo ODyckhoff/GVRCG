@@ -28,7 +28,7 @@
 	<h3>Today's Date: <?php echo "$day $number<sup>$ordinal</sup> $month $year"; ?></h3>
 
 <p>
-    <a class="w3-btn w3-green w3-round-large" href="<?php echo BASE_URI; ?>/members/editor/event/add"><i class="fa fa-plus" aria-hidden="true"></i> Add Event</a>
+    <a class="w3-btn w3-green w3-round-large" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/event/add"><i class="fa fa-plus" aria-hidden="true"></i> Add Event</a>
 </p>
 <?php
     // Present the events nicely.
