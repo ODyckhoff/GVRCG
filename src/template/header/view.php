@@ -101,19 +101,19 @@
             <?php
                 /*
                 if($lang == 'en') {
-                    echo '<span class="w3-right w3-padding"><a href="' . BASE_URI . '/action/setlang/cy"><img src="' . BASE_URI . '/pub/img/wales_icon.png" height="20px" width="auto" /> Dewis iaith i Cymraeg</a>&nbsp;</span>';
+                    echo '<span class="w3-right w3-padding"><a href="' . PROTOCOL . BASE_URI . '/action/setlang/cy"><img src="' . PROTOCOL . BASE_URI . '/pub/img/wales_icon.png" height="20px" width="auto" /> Dewis iaith i Cymraeg</a>&nbsp;</span>';
                 }
                 else {
-                    echo '<span class="w3-right w3-padding"><a href="' . BASE_URI . '/action/setlang/en"><img src="' . BASE_URI . '/pub/img/england_icon.png" height="20px" width="auto" /> Change language to English</a>&nbsp;</span>';
+                    echo '<span class="w3-right w3-padding"><a href="' . PROTOCOL . BASE_URI . '/action/setlang/en"><img src="' . PROTOCOL . BASE_URI . '/pub/img/england_icon.png" height="20px" width="auto" /> Change language to English</a>&nbsp;</span>';
                 }
                 */
                 $sess = new Session();
                 if($sess->sessionIsSet('loggedin')) {
-                    echo '<a class="w3-right w3-btn w3-red w3-hover-opacity w3-round" href="' . BASE_URI . '/action/logout">' . $text->get_text('logout') . '</a>';
+                    echo '<a class="w3-right w3-btn w3-red w3-hover-opacity w3-round" href="' . PROTOCOL . BASE_URI . '/action/logout">' . $text->get_text('logout') . '</a>';
                 }
                 else {
-                    echo '<a class="w3-right w3-btn w3-blue w3-hover-opacity w3-round w3-margin-left" href="' . BASE_URI . '/members/register">' . $text->get_text('register') . '</a>';
-                    echo '<a class="w3-right w3-btn w3-green w3-hover-opacity w3-round" href="' . BASE_URI . '/members/auth">' . $text->get_text('login') . '</a>';
+                    echo '<a class="w3-right w3-btn w3-blue w3-hover-opacity w3-round w3-margin-left" href="' . PROTOCOL . BASE_URI . '/members/register">' . $text->get_text('register') . '</a>';
+                    echo '<a class="w3-right w3-btn w3-green w3-hover-opacity w3-round" href="' . PROTOCOL . BASE_URI . '/members/auth">' . $text->get_text('login') . '</a>';
                 }
             ?>
             </div>
@@ -142,14 +142,14 @@
 	    <?php foreach( $pages as $page ) {
                 if($title == $page['page_title_'. $lang]) {
                     echo '<li class="w3-hide-medium w3-hide-small w3-large w3-border w3-text-black w3-white">'
-                       . '<a class="w3-text-black" href="' . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
+                       . '<a class="w3-text-black" href="' . PROTOCOL . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
                        . $page['page_title_' . $lang]
                        . '</a>'
                        . '</li>' . "\n";
                 }
                 else {
                     echo '<li class="w3-hide-medium w3-hide-small w3-large w3-green w3-border w3-text-white w3-hover-opacity w3-hover-green">'
-                       . '<a class="w3-text-white" href="' . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
+                       . '<a class="w3-text-white" href="' . PROTOCOL . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
                        . $page['page_title_' . $lang]
                        . '</a>'
                        . '</li>' . "\n";
@@ -175,7 +175,7 @@
                             <?php foreach( $pages as $page ) {
                                     if($page['page_name'] != 'home') {
                                         echo
-                                           '<a class="w3-bar-item w3-button" href="' . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
+                                           '<a class="w3-bar-item w3-button" href="' . PROTOCOL . BASE_URI . '/' . ($page['page_name'] != 'home' ? $page['page_name'] : '') . '">'
                                            . $page['page_title_' . $lang]
                                            . '</a>'
                                            . '<br /><br />';
@@ -191,17 +191,17 @@
                                    <?php
                                     $sess = new Session();
                                     if($sess->sessionIsSet('loggedin')) {
-                                        echo '<a class="w3-right w3-bar-item w3-btn w3-red w3-round" href="' . BASE_URI . '/action/logout">' . $text->get_text('logout') . '</a>';
+                                        echo '<a class="w3-right w3-bar-item w3-btn w3-red w3-round" href="' . PROTOCOL . BASE_URI . '/action/logout">' . $text->get_text('logout') . '</a>';
                                     }
                                     else {
-                                        echo '<a class="w3-right w3-bar-item w3-btn w3-blue w3-round w3-margin-left" href="' . BASE_URI . '/members/register">' . $text->get_text('register') . '</a>';
-                                        echo '<a class="w3-right w3-bar-item w3-btn w3-green w3-round" href="' . BASE_URI . '/members/auth">' . $text->get_text('login') . '</a>';
+                                        echo '<a class="w3-right w3-bar-item w3-btn w3-blue w3-round w3-margin-left" href="' . PROTOCOL . BASE_URI . '/members/register">' . $text->get_text('register') . '</a>';
+                                        echo '<a class="w3-right w3-bar-item w3-btn w3-green w3-round" href="' . PROTOCOL . BASE_URI . '/members/auth">' . $text->get_text('login') . '</a>';
                                     }
                                    /* if($lang == 'en') {
-                                        echo '<a class="w3-bar-item w3-button" href="' . BASE_URI . '/action/setlang/cy"><img src="' . BASE_URI . '/pub/img/wales_icon.png" height="20px" width="auto" /> Dewis iaith i Cymraeg</a>';
+                                        echo '<a class="w3-bar-item w3-button" href="' . PROTOCOL . BASE_URI . '/action/setlang/cy"><img src="' . PROTOCOL . BASE_URI . '/pub/img/wales_icon.png" height="20px" width="auto" /> Dewis iaith i Cymraeg</a>';
                                     }
                                     else {
-                                        echo '<a class="w3-bar-item w3-button" href="' . BASE_URI . '/action/setlang/en"><img src="' . BASE_URI . '/pub/img/england_icon.png" height="20px" width="auto" /> Change language to English</a>';
+                                        echo '<a class="w3-bar-item w3-button" href="' . PROTOCOL . BASE_URI . '/action/setlang/en"><img src="' . PROTOCOL . BASE_URI . '/pub/img/england_icon.png" height="20px" width="auto" /> Change language to English</a>';
                                     }*/
                                     ?>
                             </div>

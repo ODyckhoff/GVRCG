@@ -1,7 +1,6 @@
 <?php
 
     function verifyURL() {
-
         if(isset($_SERVER['HTTPS']) && (PROTOCOL == 'http' || PROTOCOL == 'http://')) {
             header('Location:' . PROTOCOL . BASE_URI . $_SERVER['REQUEST_URI']);
         }
@@ -119,7 +118,7 @@
         if(! file_exists($basePath . DS . $testPath . 'controller.php')) {
             $session = new Session();
             $session->sessionAdd('error', $testPath);
-            header('Location:' . BASE_URI . '/error/404/');
+            header('Location:' . PROTOCOL . BASE_URI . '/error/404/');
 /*
             $controller = '_404';
             $testPath = 'error/404';

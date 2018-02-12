@@ -5,7 +5,7 @@ class EventController extends Controller {
         $text = new Text($this->_lang->getLang());
         $model = $this->Event;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }
@@ -54,7 +54,7 @@ class EventController extends Controller {
         $text = new Text($this->_lang->getLang());
         $model = $this->Event;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }
@@ -98,7 +98,7 @@ class EventController extends Controller {
         $text = new Text($this->_lang->getLang());
         $model = $this->Event;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }

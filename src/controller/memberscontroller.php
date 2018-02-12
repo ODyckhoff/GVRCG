@@ -7,7 +7,7 @@ class MembersController extends Controller {
         $model = $this->Members;
         //echo "<pre>" . print_r($_SESSION, 1) . "</pre>"; die;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         } 
         $user = $sess->sessionGet('loggedin');
         if(!$user['approved']) {
@@ -83,7 +83,7 @@ class MembersController extends Controller {
         $this->set('text', $text);
 
         if(!$sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         $user = $sess->sessionGet('loggedin');
         if($user['level'] <= LVL_BOARD) {
@@ -121,7 +121,7 @@ class MembersController extends Controller {
         }
 
         if(!$sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');
@@ -150,7 +150,7 @@ class MembersController extends Controller {
         $text = new Text($this->_lang->getLang());
 
         if($sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members');
+            header('Location:' . PROTOCOL . BASE_URI . '/members');
         }
 
         if($sess->sessionIsSet('error')) {
@@ -163,7 +163,7 @@ class MembersController extends Controller {
     function success() {
         $sess = new Session();
         if(!$sess->sessionIsSet('registered')) {
-            header('Location:' . BASE_URI . '/members');
+            header('Location:' . PROTOCOL . BASE_URI . '/members');
         }
         $text = new Text($this->_lang->getLang());
         $this->set('text', $text);
@@ -194,7 +194,7 @@ class MembersController extends Controller {
         $text = new Text($this->_lang->getLang());
         $content = null;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }

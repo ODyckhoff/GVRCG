@@ -47,11 +47,11 @@
         echo '<tr>';
         echo '<td style="width:250px;">'
            . '<a class="w3-btn w3-round-large green" '
-           . 'href="' . BASE_URI . '/members/editor/event/edit/'
+           . 'href="' . PROTOCOL . BASE_URI . '/members/editor/event/edit/'
            . $ev['event_id'] . '">'
            . '<i class="fa fa-pencil" aria-hidden="true"></i> Edit</a> ';
         echo '<a class="w3-btn w3-round-large w3-red" '
-           . 'href="' . BASE_URI . '/members/editor/event/delete/'
+           . 'href="' . PROTOCOL . BASE_URI . '/members/editor/event/delete/'
            . $ev['event_id'] . '">'
            . '<i class="fa fa-trash" aria-hidden="true"></i> Delete</a>'
            . '</td>';

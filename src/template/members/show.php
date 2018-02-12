@@ -34,7 +34,7 @@
                             : '<i class="fa fa-times"></i>'
                         ) . '</td>';
                    echo '<td>' . $levels[$member['member_level']] . '</td>';
-                   echo '<td><a class="w3-btn w3-round green w3-hover-opacity" href="' . BASE_URI . '/members/edit/' . $member['member_id'] . '">'
+                   echo '<td><a class="w3-btn w3-round green w3-hover-opacity" href="' . PROTOCOL . BASE_URI . '/members/edit/' . $member['member_id'] . '">'
                         . $text->get_text('memberedit') . '</a></td>';
                echo '</tr>';
             }

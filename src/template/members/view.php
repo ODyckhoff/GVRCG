@@ -34,7 +34,7 @@
 
         <h2>Documents</h2>
             <?php foreach ($files as $file) {
-                echo '<p><a class="w3-btn green w3-text-white w3-round-large" href="' . BASE_URI . '/pub/doc/' . $file['file_name'] . '">'
+                echo '<p><a class="w3-btn green w3-text-white w3-round-large" href="' . PROTOCOL . BASE_URI . '/pub/doc/' . $file['file_name'] . '">'
                    . $file['file_name'] . '</a></p>';
             } ?>
     </div>

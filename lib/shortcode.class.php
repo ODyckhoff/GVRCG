@@ -40,7 +40,7 @@ class Shortcode {
 
     function expand_linkin($arg) {
         $arr = explode('|', $arg);
-        $str = '<a href="' . BASE_URI . $arr[0] . '">' . (count($arr) == 2 ? $arr[1] : $arr[0]) . '</a>';
+        $str = '<a href="' . PROTOCOL . BASE_URI . $arr[0] . '">' . (count($arr) == 2 ? $arr[1] : $arr[0]) . '</a>';
         return $str;
     }
 

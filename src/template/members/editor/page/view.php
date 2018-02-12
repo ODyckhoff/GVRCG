@@ -20,11 +20,11 @@
                 echo "<td>";
                 // buttons
                 echo '<a class="w3-btn w3-round-large green"'
-                   . 'href="' . BASE_URI . '/members/editor/page/edit/' . $page['page_id'] . '">'
+                   . 'href="' . PROTOCOL . BASE_URI . '/members/editor/page/edit/' . $page['page_id'] . '">'
                    . '<i class="fa fa-pencil" aria-hidden="true"></i> Edit</a> ';
                 
                 echo '<a class="w3-btn w3-round-large w3-red"'
-                   . 'href="' . BASE_URI . '/members/editor/page/delete/' . $page['page_id'] . '">'
+                   . 'href="' . PROTOCOL . BASE_URI . '/members/editor/page/delete/' . $page['page_id'] . '">'
                    . '<i class="fa fa-pencil" aria-hidden="true"></i> Delete</a> ';
                 echo "</td>";
 

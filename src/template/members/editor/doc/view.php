@@ -35,8 +35,8 @@
                 $size = human_filesize(filesize($path), 2);
 
                 echo '<td>';
-                echo '<a class="w3-btn green w3-round-large" href="' . BASE_URI . '/members/editor/doc/edit/' . $ref['file_id'] . '"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>';
-                echo ' <a class="w3-btn w3-red w3-round-large" href="' . BASE_URI . '/members/editor/doc/delete/' . $ref['file_id'] . '"><i class="fa fa-trash" aria-hidden="true"></i> Remove</a>';
+                echo '<a class="w3-btn green w3-round-large" href="' . PROTOCOL . BASE_URI . '/members/editor/doc/edit/' . $ref['file_id'] . '"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>';
+                echo ' <a class="w3-btn w3-red w3-round-large" href="' . PROTOCOL . BASE_URI . '/members/editor/doc/delete/' . $ref['file_id'] . '"><i class="fa fa-trash" aria-hidden="true"></i> Remove</a>';
                 echo '</td>';
 
                 echo "<td>" . $ref['file_name'] . "</td>"

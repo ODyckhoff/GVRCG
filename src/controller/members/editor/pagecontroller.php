@@ -4,7 +4,7 @@ class PageController extends Controller {
         $sess = new Session();
         $model = $this->Page;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');
@@ -46,7 +46,7 @@ class PageController extends Controller {
         $sess = new Session();
         $model = $this->Page;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');
@@ -90,7 +90,7 @@ class PageController extends Controller {
         $sess = new Session();
         $model = $this->Page;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');

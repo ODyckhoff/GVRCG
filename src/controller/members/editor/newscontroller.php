@@ -5,7 +5,7 @@ class NewsController extends Controller {
         $text = new Text($this->_lang->getLang());
         $content = null;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }
@@ -52,7 +52,7 @@ class NewsController extends Controller {
         $text = new Text($this->_lang->getLang());
         $content = null;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }
@@ -106,7 +106,7 @@ class NewsController extends Controller {
         $text = new Text($this->_lang->getLang());
         $content = null;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }
@@ -143,7 +143,7 @@ class NewsController extends Controller {
         $content = null;
         $this->set('args', $args);
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
         else {
         }

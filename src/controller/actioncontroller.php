@@ -9,7 +9,7 @@ class ActionController extends Controller {
 
     function auth() {
         if(empty($_POST['name']) || empty($_POST['password'])) { 
-            header('Location:' . BASE_URI . '/members');
+            header('Location:' . PROTOCOL . BASE_URI . '/members');
         }
         $user = $email = $_POST['name'];
         $pass = $_POST['password'];
@@ -39,7 +39,7 @@ class ActionController extends Controller {
         $text = new Text($this->_lang->getLang());
         if(!password_verify($pass, $result['member_pass'])) {
             $sess->sessionAdd('error', $text->get_text('badcredentials'));
-            header('Location:' . BASE_URI . '/members');
+            header('Location:' . PROTOCOL . BASE_URI . '/members');
         }
         else {
             $sess->sessionAdd('loggedin',
@@ -54,7 +54,7 @@ class ActionController extends Controller {
                 )
             );
             $sess->sessionAdd('success', $text->get_text('loggedin'));
-            header('Location:' . BASE_URI . '/members');
+            header('Location:' . PROTOCOL . BASE_URI . '/members');
         }
     }
 
@@ -67,7 +67,7 @@ class ActionController extends Controller {
         }
 
         $sess->sessionAdd('success', $text->get_text('loggedout'));
-        header('Location:' . BASE_URI . '/members/auth');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
     }
 
     function editmember($args = null) {
@@ -76,7 +76,7 @@ class ActionController extends Controller {
 
         if($args == null || empty($args)) {
             $sess->sessionAdd('error', 'No parameters provided for User ID');
-            header('Location:' . BASE_URI . '/members/show');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/show');
         }
 
         if(empty($_POST)
@@ -84,7 +84,7 @@ class ActionController extends Controller {
         || empty($_POST['userlevel'])
         ){
             $sess->sessionAdd('error', $text->get_text('missingfield'));
-            header('Location:' . BASE_URI . '/members/edit/' . $args);
+            header('Location:' . PROTOCOL . BASE_URI . '/members/edit/' . $args);
         }
 
         $user = $_POST['username'];
@@ -121,7 +121,7 @@ class ActionController extends Controller {
         else {
             $sess->sessionAdd('error', 'Username is taken');
         }
-        header('Location:' . BASE_URI . '/members/edit/' . $args);
+        header('Location:' . PROTOCOL . BASE_URI . '/members/edit/' . $args);
     }
 
     function register() {
@@ -136,12 +136,12 @@ class ActionController extends Controller {
         || empty($_POST['confirmpassword'])
         ) {
             $sess->sessionAdd('error', $text->get_text('missingfield'));
-            header('Location:' . BASE_URI . '/members/register');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/register');
         }
 
         if($_POST['password'] != $_POST['confirmpassword']) {
             $sess->sessionAdd('error', $text->get_text('nopassmatch'));
-            header('Location:' . BASE_URI . '/members/register');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/register');
         }
 
         $user  = $_POST['username'];
@@ -164,7 +164,7 @@ class ActionController extends Controller {
 
         if(!empty($result)) {
             $sess->sessionAdd('error', $text->get_text('userexists'));
-            header('Location:' . BASE_URI . '/members/register');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/register');
         }
 
         $model->insert('tbl_member', array('default', "'$user'", "'$email'", "'$name'", "'".password_hash($pass, PASSWORD_BCRYPT)."'", 'default', 'default', 'default'))
@@ -181,11 +181,11 @@ class ActionController extends Controller {
                 )
             );
             $sess->sessionAdd('registered', true);
-            header('Location:' . BASE_URI . '/members/success');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/success');
         }
         else {
             $sess->sessionAdd('error', $model->getErr());
-            header('Location:' . BASE_URI . '/members/register');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/register');
         }
     }
 
@@ -204,7 +204,7 @@ class ActionController extends Controller {
         else {
             $sess->sessionAdd('error', $model->getErr());
         }
-        header('Location:' . BASE_URI . '/members/approve');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/approve');
     }
 
     function deny($args) {
@@ -222,7 +222,7 @@ class ActionController extends Controller {
         else {
             $sess->sessionAdd('error', $model->getErr());
         }
-        header('Location:' . BASE_URI . '/members');
+        header('Location:' . PROTOCOL . BASE_URI . '/members');
     }
 
     function selfedit() {
@@ -272,7 +272,7 @@ class ActionController extends Controller {
                     )                                            
                 );
         } 
-        header('Location:' . BASE_URI . '/members/selfedit');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/selfedit');
     }
 
     function addnews() {
@@ -306,7 +306,7 @@ class ActionController extends Controller {
                 $sess->sessionAdd('error', $model->getErr());
             }       
         }
-        header('Location:' . BASE_URI . '/members/editor/news');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/news');
     }
 
     function editnews($args) {
@@ -346,7 +346,7 @@ class ActionController extends Controller {
                 $sess->sessionAdd('error', 'There was an error publishing your changes');
             }
         }
-        header('Location:' . BASE_URI . '/members/editor/news/edit/' . $args);
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/news/edit/' . $args);
     }
 
     function deletenews($args) {
@@ -370,7 +370,7 @@ class ActionController extends Controller {
                 $sess->sessionAdd('error', $model->getErr());
             }
         }
-        header('Location:' . BASE_URI . '/members/editor/news');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/news');
     }
 
     function addevent() {
@@ -455,7 +455,7 @@ class ActionController extends Controller {
                 }
             }
         }
-        header('Location:' . BASE_URI . '/members/editor/event/add');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/event/add');
     }
 
     function editevent($args) {
@@ -538,7 +538,7 @@ class ActionController extends Controller {
                 }
             }
         }
-        header('Location:' . BASE_URI . '/members/editor/event');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/event');
     }
 
     function deleteevent($args) {
@@ -562,7 +562,7 @@ class ActionController extends Controller {
                 $sess->sessionAdd('error', $model->getErr());
             }
         }
-        header('Location:' . BASE_URI . '/members/editor/event');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/event');
 
     }
 
@@ -596,7 +596,7 @@ class ActionController extends Controller {
         else {
             $sess->sessionAdd('error', print_r(error_get_last(), 1));
         }
-        header('Location:' . BASE_URI . '/members/editor/doc/add');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/doc/add');
     }
 
     function deletefile($fileid) {
@@ -622,7 +622,7 @@ class ActionController extends Controller {
         else {
             $sess->sessionDel('error', 'There was a problem removing this file.');
         }
-        header('Location:' . BASE_URI . '/members/editor/doc');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/doc');
     }
 
     function editfile($file) {
@@ -658,7 +658,7 @@ class ActionController extends Controller {
             $sess->sessionAdd('error', 'There was an issue updating the file:' . $model->getErr());
         }
 
-        header('Location:' . BASE_URI . '/members/editor/doc/view');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/doc/view');
     }
 
     function editpage($args = null) {
@@ -686,7 +686,7 @@ class ActionController extends Controller {
                 $sess->sessionAdd('error', $model->getErr());
             }
         }
-        header('Location:' . BASE_URI . '/members/editor/page/edit/' . $args);
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/page/edit/' . $args);
     }
 
     function addpage() {
@@ -695,7 +695,7 @@ class ActionController extends Controller {
 
         if(empty($_POST) || empty($_POST['pagename']) || empty($_POST['contents'])) {
             $sess->sessionAdd('error', 'Name or contents fields are empty.');
-            header('Location:' . BASE_URI . '/members/editor/page/add');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/editor/page/add');
         }
         else {
             $givenname = $_POST['page name'];
@@ -711,6 +711,6 @@ class ActionController extends Controller {
             */
                  
         }
-        header('Location:' . BASE_URI . '/members/editor/page/add');
+        header('Location:' . PROTOCOL . BASE_URI . '/members/editor/page/add');
     }
 }

@@ -6,7 +6,7 @@ class DocController extends Controller {
         $text = new Text($this->_lang->getLang());
         $model = $this->Doc;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');
@@ -55,7 +55,7 @@ class DocController extends Controller {
         $text = new Text($this->_lang->getLang());
         $model = $this->Doc;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');
@@ -89,7 +89,7 @@ class DocController extends Controller {
         $text = new Text($this->_lang->getLang());
         $model = $this->Doc;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');
@@ -122,7 +122,7 @@ class DocController extends Controller {
         $text = new Text($this->_lang->getLang());
         $model = $this->Doc;
         if(! $sess->sessionIsSet('loggedin')) {
-            header('Location:' . BASE_URI . '/members/auth');
+            header('Location:' . PROTOCOL . BASE_URI . '/members/auth');
         }
 
         $user = $sess->sessionGet('loggedin');
