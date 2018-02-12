@@ -8,6 +8,9 @@
             echo '<div class="w3-panel w3-padding w3-leftbar w3-border-red w3-pale-red">' . $error . '</div>';
         }
     ?>
+    <div class="w3-panel w3-leftbar w3-border-yellow w3-pale-yellow"><h4>Please note, this creates an account on the website. It does not make you a member of the GVR.</h4>
+    <h4>If you would like to become a volunteer on the GVR, please visit the <a href="<?php echo BASE_URI . '/volunteer'; ?>">Volunteer with Us</a> page.</h4>
+    </div>
     <script>
         function regSubmit(token) {
             document.getElementById('reg-form').submit();
