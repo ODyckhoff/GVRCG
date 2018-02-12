@@ -3,10 +3,15 @@
     function verifyURL() {
 
         if(isset($_SERVER['HTTPS']) && (PROTOCOL == 'http' || PROTOCOL == 'http://')) {
-            header('Location:http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+            header('Location:' . PROTOCOL . BASE_URI . $_SERVER['REQUEST_URI']);
         }
         elseif(!isset($_SERVER['HTTPS']) && (PROTOCOL == 'https' || PROTOCOL == 'https://')) {
-            header('Location:https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+            header('Location:' . PROTOCOL . BASE_URI . $_SERVER['REQUEST_URI']);
+        }
+
+        // Fix Facebook direction.
+        if($_SERVER['REQUEST_URI'] == '/index.php/funding/becoming-a-member') {
+            header('Location:' . PROTOCOL . BASE_URI . '/volunteer');
         }
     }
 
