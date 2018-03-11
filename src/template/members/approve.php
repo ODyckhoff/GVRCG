@@ -28,11 +28,11 @@
                         ) . '</td>';
                    echo '<td>' . $text->get_text('clearance_' . $member['member_level']) . '</td>';
                    echo '<td><a class="w3-btn w3-round green w3-hover-opacity" href="'
-                        . BASE_URI . '/action/approve/' . $member['member_id'] . '">'
+                        . PROTOCOL . BASE_URI . '/action/approve/' . $member['member_id'] . '">'
                         . rtrim($text->get_text('approveusr'), 's') . '</a> ';
 
                    echo '&nbsp; <a class="w3-btn w3-round green w3-hover-opacity" href="'
-                        . BASE_URI . '/action/deny/' . $member['member_id'] . '">'
+                        . PROTOCOL . BASE_URI . '/action/deny/' . $member['member_id'] . '">'
                         . $text->get_text('denyusr') . '</a></td>';
                echo '</tr>';
             }
