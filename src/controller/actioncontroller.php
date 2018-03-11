@@ -713,4 +713,18 @@ class ActionController extends Controller {
         }
         header('Location:' . PROTOCOL . BASE_URI . '/members/editor/page/add');
     }
+
+    // Membership Functions
+
+    function payseparate() {
+
+    }
+
+    function memberform() {
+
+    }
+
+    function renewal() {
+
+    }
 }
