@@ -58,7 +58,7 @@
         <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/doc">Manage Files</a>
 
         <h3>Pages</h3>
-        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page/add">Add Page</a>
+        <!-- <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page/add">Add Page</a> -->
         <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page">Manage Pages</a>
         
     </div>
