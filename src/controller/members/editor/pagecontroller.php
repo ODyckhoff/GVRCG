@@ -123,7 +123,7 @@ class PageController extends Controller {
 
         $pages = $model->getAll();
         $menupages = array_filter($pages, function($data) {
-                                              return ($data['page_route'] == '/' && !empty($data['page_order']));
+                                              return ($data['page_route'] == '/' && !empty($data['page_order']) && $data['page_editable'] == 1);
                                           }
         );
         $otherpages = array_filter($pages, function($data) {

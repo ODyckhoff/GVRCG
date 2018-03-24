@@ -47,7 +47,7 @@ class Controller {
         ob_end_clean();
 
         ob_start();
-        if($this->_controller != "header" && $this->_controller != "footer") {
+        if($this->_controller != "header" && $this->_controller != "footer" && $this->_controller != "action") {
             $this->_footer->execute();
         }
         $footer = ob_get_contents();

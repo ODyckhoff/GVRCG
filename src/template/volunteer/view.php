@@ -5,7 +5,6 @@
 
     <p>At the Garw Valley Railway we are always looking for volunteers of all ages and skillsets to help us achieve our vision. Here is your first step towards becoming a member.</p>
     <p>You can volunteer manually by filling in the forms and bringing them to the locomotive shed, or you can volunteer online.</p>
-    <p>If you are already a member, you can also renew your membership here by clicking on the "Already a Member" checkbox.</p>
 
     <h2>Volunteer Manually</h2>
     <p>You can download the forms here, in either Microsoft Word's .docx format, or as a PDF.</p>
@@ -19,7 +18,6 @@
     <p>Select the option relevant to you.</p>
     <a class="w3-btn w3-green w3-round-large" href="<?php echo PROTOCOL . BASE_URI; ?>/volunteer/payseparate">I have filled out the form and wish to pay online</a>
     <a class="w3-btn w3-green w3-round-large" href="<?php echo PROTOCOL . BASE_URI; ?>/volunteer/memberform">I will fill out the form and pay online</a>
-    <a class="w3-btn w3-green w3-round-large" href="<?php echo PROTOCOL . BASE_URI; ?>/volunteer/renewal">I wish to renew my membership</a>
 
     </div>
 </div>

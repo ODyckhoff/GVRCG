@@ -26,16 +26,16 @@
     <div id="summernote">
 <?php echo $content['content_en']; ?>
     </div>
-        <script>
-        </script>
 </div>
 
 <script>
-    $(document).ready(function() {
+    //$(document).ready(function() {
         $('#summernote').summernote({
-            height:300
+            placeholder: 'Hello World',
+            tabsize: 2,
+            height: 200
         });
-    });
+    //});
 
     function submitform() {
         $('#codeplaceholder').val(getContents());

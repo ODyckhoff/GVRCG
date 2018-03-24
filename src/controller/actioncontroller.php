@@ -698,8 +698,8 @@ class ActionController extends Controller {
             header('Location:' . PROTOCOL . BASE_URI . '/members/editor/page/add');
         }
         else {
-            $givenname = $_POST['page name'];
-            $actualname = str_replace(' ', '', strtolower($name));
+            $givenname = $_POST['pagename'];
+            $actualname = str_replace(' ', '', strtolower($givenname));
             /*
                 0. Ensure Menu Position is an integer.
                 1. Parent Page: root or other page.
@@ -717,14 +717,89 @@ class ActionController extends Controller {
     // Membership Functions
 
     function payseparate() {
+        // required fields: fullname, dob
 
+        $sess = new Session();
+        $model = $this->Action;
+
+        if(empty($_POST) || empty($_POST['fullname']) || empty($_POST['dob'])) {
+            $sess->sessionAdd('error', 'Name or D.O.B. fields are empty');
+            header('Location:' . PROTOCOL . BASE_URI . '/volunteer/payseparate');
+        }
+
+        $guid = sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+        $dob = date_format(date_create_from_format('d/m/Y', $_POST['dob']), 'Y-m-d');
+
+        $model->insert('tbl_paypal', array('default', ':fullname', ':dob', ':guid', '""', 0));
+        $model->prepare();
+        $model->bindParam(':fullname', $_POST['fullname']);
+        $model->bindParam(':dob', $dob);
+        $model->bindParam(':guid', $guid);
+        $model->execute();
+        $sess = new Session();
+        //$sess->sessionAdd('error', $model->getErr());
+
+        header('Location:' . PROTOCOL . BASE_URI . '/paymenthandler/process/' . $guid);
     }
 
     function memberform() {
+        $sess = new Session();
+        $model = $this->Action;
 
+        if(empty($_POST['fullname']) || empty($_POST['dob']) || empty($_POST['address']) || empty($_POST['postcode']) || empty($_POST['telephone']) || empty($_POST['email'])) {
+            $sess->sessionAdd('error', "One of the fields is empty.");
+            header('Location:' . PROTOCOL . BASE_URI . '/volunteer/memberform');
+            exit;
+        }
+
+        $guid = sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+        $dob = date_format(date_create_from_format('d/m/Y', $_POST['dob']), 'Y-m-d');
+
+        $model->insert('tbl_memberships', array('default', ':fullname', ':dob', ':address', ':postcode', ':telephone', ':email', ':giftaid'));
+        $model->prepare();
+        $model->bindParam(':fullname', $_POST['fullname']);
+        $model->bindParam(':dob', $dob);
+        $model->bindParam(':address', $_POST['address']);
+        $model->bindParam('postcode', $_POST['postcode']);
+        $model->bindParam(':telephone', $_POST['telephone']);
+        $model->bindParam(':email', $_POST['email']);
+        $model->bindParam(':giftaid', $_POST['giftaid']);
+        $model->execute();
+
+        $model->insert('tbl_paypal', array('default', ':fullname', ':dob', ':guid', '""', 0));
+        $model->prepare();
+        $model->bindParam(':fullname', $_POST['fullname']);
+        $model->bindParam(':dob', $_POST['dob']);
+        $model->bindParam(':guid', $guid);
+        $model->execute();
+        
+        header('Location:' . PROTOCOL . BASE_URI . '/paymenthandler/process/' . $guid);
     }
 
     function renewal() {
 
+    }
+
+    function ipn() {
+        $model = $this->Action;
+        $ipn = new PaypalIPN();
+        $ipn->useSandbox();
+        $verified = $ipn->verifyIPN();
+        if($verified) {
+            if($_POST['payment_status'] == "Completed") {
+                $model->update('tbl_paypal')
+                      ->set('txn_ok = 1, txn_id = :id')
+                      ->where('guid = :guid')
+                      ->_end();
+                $model->prepare();
+                $model->bindParam(':id', $_POST['txn_id']);
+                $model->bindParam(':guid', $_POST['invoice']);
+                if(!$model->execute()) {
+                    file_put_contents('mysqlerr', print_r($model->getErr(), 1));
+                }
+            }
+        }
+
+        header("HTTP/1.1 200 OK");
     }
 }

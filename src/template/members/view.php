@@ -14,13 +14,13 @@
 ?>
         <h1><?php echo $text->get_text('dashboard'); ?></h1>
 <div class="w3-section w3-row">
-    <div class="w3-col w3-third">
         <?php if($user['level'] <= LVL_ADMIN && $numberUnapproved > 0) { ?>
             <div class="w3-panel w3-padding w3-leftbar w3-pale-blue w3-border-blue">
                 <?php printf($text->get_text('waitapprove'), $numberUnapproved); ?>
             </div>
         <?php } ?>
 
+    <div class="w3-col w3-third">
         <h2>Your Account</h2>
             <?php $sess = new Session();
                   $levels = array('Developer', 'Administrator', 'Board', 'Editor', 'Volunteer', 'Visitor');
@@ -56,6 +56,11 @@
         <h3>Documents</h3>
         <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/doc/add">Add File</a>
         <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/doc">Manage Files</a>
+
+        <h3>Pages</h3>
+        <a class="w3-btn w3-border w3-round-large green w3-text-white" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page/add">Add Page</a>
+        <a class="w3-btn w3-border w3-round-large w3-amber" href="<?php echo PROTOCOL . BASE_URI; ?>/members/editor/page">Manage Pages</a>
+        
     </div>
     <?php } ?>
 
