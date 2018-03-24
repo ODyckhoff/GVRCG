@@ -783,7 +783,7 @@ class ActionController extends Controller {
     function ipn() {
         $model = $this->Action;
         $ipn = new PaypalIPN();
-        $ipn->useSandbox();
+        //$ipn->useSandbox();
         $verified = $ipn->verifyIPN();
         if($verified) {
             if($_POST['payment_status'] == "Completed") {
